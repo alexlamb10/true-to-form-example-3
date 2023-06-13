@@ -2,28 +2,34 @@
 
 <form [formGroup]="form">
   <div class="m-5">
+    <label for="fname">First Name</label>
     <input
       class="border-1 rounded border"
       formControlName="firstName"
       placeholder="First Name"
       type="text"
+      id="fname"
     />
     <p *ngIf="firstNameErrors" class="text-red-500">This field is required!</p>
   </div>
   <div class="m-5">
+    <label for="lname">Last Name</label>
     <input
       class="border-1 rounded border"
       formControlName="lastName"
       placeholder="Last Name"
       type="text"
+      id="lname"
     />
   </div>
   <div class="m-5">
+    <label for="email">Email</label>
     <input
       class="border-1 rounded border"
       formControlName="email"
       placeholder="Email"
       type="text"
+      id="email"
     />
   </div>
   <div class="m-5">
