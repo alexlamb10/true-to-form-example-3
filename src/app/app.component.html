@@ -1,1 +1,34 @@
 <h1 class="text-xl text-bold mb-4">True to Form: A Guide to Reactive Forms</h1>
+
+<form [formGroup]="form">
+  <input
+    class="border-1 border"
+    formControlName="firstName"
+    placeholder="First Name"
+    type="text"
+  />
+  <input
+    class="border-1 border"
+    formControlName="lastName"
+    placeholder="Last Name"
+    type="text"
+  />
+  <input
+    class="border-1 border"
+    formControlName="email"
+    placeholder="Email"
+    type="text"
+  />
+
+  <button
+    (click)="submit()"
+    [disabled]="form.invalid"
+    class="bg-green-500 rounded p-4 text-white disabled:opacity-50"
+  >
+    Submit
+  </button>
+</form>
+
+<pre><code>
+{{ formUpdates$ | async | json }}
+</code></pre>
