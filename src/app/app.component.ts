@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { map, startWith } from 'rxjs';
 
 @Component({
@@ -10,9 +16,18 @@ import { map, startWith } from 'rxjs';
 export class AppComponent {
   public form: FormGroup = this._fb.group({
     firstName: ['', [Validators.required]],
-    lastName: ['', [Validators.required]],
+    lastName: ['', [Validators.required, this.validLastName]],
     email: ['', [Validators.required, Validators.email]],
   });
+
+  validLastName(control: AbstractControl): ValidationErrors | null {
+    if (!control.value) {
+      return {
+        validLastName: true,
+      };
+    }
+    return control.value === 'Johnson' ? null : { validLastName: true };
+  }
 
   get firstNameErrors() {
     return (
