@@ -2,19 +2,20 @@
 
 <form [formGroup]="form">
   <input
-    class="border-1 border"
+    class="border-1 rounded border"
     formControlName="firstName"
     placeholder="First Name"
     type="text"
   />
+  <p *ngIf="firstNameErrors" class="text-red-500">This field is required!</p>
   <input
-    class="border-1 border"
+    class="border-1 rounded border"
     formControlName="lastName"
     placeholder="Last Name"
     type="text"
   />
   <input
-    class="border-1 border"
+    class="border-1 rounded border"
     formControlName="email"
     placeholder="Email"
     type="text"

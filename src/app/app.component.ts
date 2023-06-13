@@ -14,6 +14,13 @@ export class AppComponent {
     email: ['', [Validators.required, Validators.email]],
   });
 
+  get firstNameErrors() {
+    return (
+      this.form.controls.firstName.touched &&
+      this.form.controls.firstName.errors
+    );
+  }
+
   public formUpdates$ = this.form.valueChanges.pipe(
     startWith(this.form.value),
     map((values) => {
